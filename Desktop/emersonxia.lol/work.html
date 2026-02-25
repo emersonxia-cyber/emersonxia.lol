@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Emerson Xia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      margin: 20px;
+      background: #fff;
+    }
+
+    a { color: #000; text-decoration: underline; }
+    a:hover { background: #FFE000; }
+    p { margin: 0 0 6px 0; }
+
+    nav { margin-bottom: 40px; }
+
+    .project {
+      margin-bottom: 80px;
+    }
+
+    .project-title {
+      font-size: 16px;
+      font-style: normal;
+      color: #000;
+      margin-bottom: 10px;
+    }
+
+    /* slideshow per project */
+    .slideshow {
+      position: relative;
+      background: #f0f0f0;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .slides {
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide .ph {
+      width: 100%;
+      height: 560px;
+      background: #e0e0e0;
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-caption {
+      font-size: 14px;
+      font-style: italic;
+      color: #000;
+      padding: 6px 0 0 0;
+    }
+
+    /* nav row below image */
+    .slide-nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .slide-btn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      background: #FFE000;
+      border: none;
+      cursor: pointer;
+      padding: 2px 10px;
+      color: #000;
+      line-height: 1;
+    }
+
+    .slide-btn:hover {
+      background: #2ecc40;
+      color: #fff;
+    }
+
+    .slide-count {
+      font-size: 13px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" style="color: #2ecc40;">Emerson Xia</a> / Work
+</nav>
+
+
+<!-- PROJECT 1 -->
+<div class="project">
+  <p class="project-title">Hunters and Cowboys, 2024</p>
+  <div class="slideshow">
+    <div class="slides">
+      <div class="slide active"><div class="ph"></div><p class="slide-caption">Untitled, 2024 — archival pigment print</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Untitled ii, 2024 — archival pigment print</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Untitled iii, 2024 — archival pigment print</p></div>
+    </div>
+    <div class="slide-nav">
+      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
+      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <span class="slide-count"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROJECT 2 -->
+<div class="project">
+  <p class="project-title">Project Two, 2023</p>
+  <div class="slideshow">
+    <div class="slides">
+      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2023 — medium</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2023 — medium</p></div>
+    </div>
+    <div class="slide-nav">
+      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
+      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <span class="slide-count"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROJECT 3 -->
+<div class="project">
+  <p class="project-title">Project Three, 2022</p>
+  <div class="slideshow">
+    <div class="slides">
+      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2022 — medium</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2022 — medium</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Title iii, 2022 — medium</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Title iv, 2022 — medium</p></div>
+    </div>
+    <div class="slide-nav">
+      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
+      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <span class="slide-count"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- PROJECT 4 -->
+<div class="project">
+  <p class="project-title">Project Four, 2022</p>
+  <div class="slideshow">
+    <div class="slides">
+      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2022 — medium</p></div>
+      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2022 — medium</p></div>
+    </div>
+    <div class="slide-nav">
+      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
+      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <span class="slide-count"></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // init all counters
+  document.querySelectorAll('.slideshow').forEach(ss => {
+    updateCount(ss);
+  });
+
+  function getSlides(btn) {
+    return btn.closest('.slideshow').querySelectorAll('.slide');
+  }
+
+  function getCurrent(slides) {
+    return [...slides].findIndex(s => s.classList.contains('active'));
+  }
+
+  function goTo(ss, idx) {
+    const slides = ss.querySelectorAll('.slide');
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    updateCount(ss);
+  }
+
+  function nextSlide(btn) {
+    const ss = btn.closest('.slideshow');
+    const slides = ss.querySelectorAll('.slide');
+    const cur = getCurrent(slides);
+    goTo(ss, (cur + 1) % slides.length);
+  }
+
+  function prevSlide(btn) {
+    const ss = btn.closest('.slideshow');
+    const slides = ss.querySelectorAll('.slide');
+    const cur = getCurrent(slides);
+    goTo(ss, (cur - 1 + slides.length) % slides.length);
+  }
+
+  function updateCount(ss) {
+    const slides = ss.querySelectorAll('.slide');
+    const cur = getCurrent(slides);
+    ss.querySelector('.slide-count').textContent = (cur + 1) + ' / ' + slides.length;
+  }
+</script>
+
+</body>
+</html>
