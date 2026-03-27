@@ -58,9 +58,12 @@
     }
 
     .slide img {
-      width: 100%;
+      max-height: 75vh;
+      max-width: 100%;
+      width: auto;
       height: auto;
       display: block;
+      margin: 0 auto;
     }
 
     .slide-caption {
@@ -117,8 +120,8 @@
       <div class="slide"><img src="John 2024 (2).jpg" /><p class="slide-caption">Untitled iii, 2024 — archival pigment print</p></div>
     </div>
     <div class="slide-nav">
-      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
-      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <button class="slide-btn prev-btn">&#8592;</button>
+      <button class="slide-btn next-btn">&#8594;</button>
       <span class="slide-count"></span>
     </div>
   </div>
@@ -135,8 +138,8 @@
       <div class="slide"><div class="ph"></div><p class="slide-caption">Untitled iii, 2024 — archival pigment print</p></div>
     </div>
     <div class="slide-nav">
-      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
-      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <button class="slide-btn prev-btn">&#8592;</button>
+      <button class="slide-btn next-btn">&#8594;</button>
       <span class="slide-count"></span>
     </div>
   </div>
@@ -152,8 +155,8 @@
       <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2023 — medium</p></div>
     </div>
     <div class="slide-nav">
-      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
-      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <button class="slide-btn prev-btn">&#8592;</button>
+      <button class="slide-btn next-btn">&#8594;</button>
       <span class="slide-count"></span>
     </div>
   </div>
@@ -171,8 +174,8 @@
       <div class="slide"><div class="ph"></div><p class="slide-caption">Title iv, 2022 — medium</p></div>
     </div>
     <div class="slide-nav">
-      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
-      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <button class="slide-btn prev-btn">&#8592;</button>
+      <button class="slide-btn next-btn">&#8594;</button>
       <span class="slide-count"></span>
     </div>
   </div>
@@ -188,8 +191,8 @@
       <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2022 — medium</p></div>
     </div>
     <div class="slide-nav">
-      <button class="slide-btn" onclick="prevSlide(this)">&#8592;</button>
-      <button class="slide-btn" onclick="nextSlide(this)">&#8594;</button>
+      <button class="slide-btn prev-btn">&#8592;</button>
+      <button class="slide-btn next-btn">&#8594;</button>
       <span class="slide-count"></span>
     </div>
   </div>
@@ -197,45 +200,34 @@
 
 
 <script>
-  // init all counters
-  document.querySelectorAll('.slideshow').forEach(ss => {
-    updateCount(ss);
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.slideshow').forEach(function (ss) {
+      var slides = ss.querySelectorAll('.slide');
+      var count = ss.querySelector('.slide-count');
+
+      function getCurrent() {
+        return Array.from(slides).findIndex(function (s) { return s.classList.contains('active'); });
+      }
+
+      function goTo(idx) {
+        slides.forEach(function (s) { s.classList.remove('active'); });
+        slides[idx].classList.add('active');
+        count.textContent = (idx + 1) + ' / ' + slides.length;
+      }
+
+      goTo(0);
+
+      ss.querySelector('.prev-btn').addEventListener('click', function () {
+        var cur = getCurrent();
+        goTo((cur - 1 + slides.length) % slides.length);
+      });
+
+      ss.querySelector('.next-btn').addEventListener('click', function () {
+        var cur = getCurrent();
+        goTo((cur + 1) % slides.length);
+      });
+    });
   });
-
-  function getSlides(btn) {
-    return btn.closest('.slideshow').querySelectorAll('.slide');
-  }
-
-  function getCurrent(slides) {
-    return [...slides].findIndex(s => s.classList.contains('active'));
-  }
-
-  function goTo(ss, idx) {
-    const slides = ss.querySelectorAll('.slide');
-    slides.forEach(s => s.classList.remove('active'));
-    slides[idx].classList.add('active');
-    updateCount(ss);
-  }
-
-  function nextSlide(btn) {
-    const ss = btn.closest('.slideshow');
-    const slides = ss.querySelectorAll('.slide');
-    const cur = getCurrent(slides);
-    goTo(ss, (cur + 1) % slides.length);
-  }
-
-  function prevSlide(btn) {
-    const ss = btn.closest('.slideshow');
-    const slides = ss.querySelectorAll('.slide');
-    const cur = getCurrent(slides);
-    goTo(ss, (cur - 1 + slides.length) % slides.length);
-  }
-
-  function updateCount(ss) {
-    const slides = ss.querySelectorAll('.slide');
-    const cur = getCurrent(slides);
-    ss.querySelector('.slide-count').textContent = (cur + 1) + ' / ' + slides.length;
-  }
 </script>
 
 </body>
