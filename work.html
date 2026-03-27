@@ -9,7 +9,8 @@
     body {
       font-family: 'Cormorant Garamond', serif;
       font-size: 18px;
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 860px;
       background: #fff;
     }
 
@@ -23,83 +24,11 @@
       margin-bottom: 80px;
     }
 
-    .project-title {
-      font-size: 16px;
-      font-style: normal;
-      color: #000;
-      margin-bottom: 10px;
-    }
-
-    /* slideshow per project */
-    .slideshow {
-      position: relative;
-      background: #f0f0f0;
-      display: inline-block;
+    .project-img {
       width: 100%;
-    }
-
-    .slides {
-      position: relative;
-    }
-
-    .slide {
-      display: none;
-    }
-
-    .slide.active {
-      display: block;
-    }
-
-    .slide .ph {
-      width: 100%;
-      height: 560px;
-      background: #e0e0e0;
-      display: block;
-    }
-
-    .slide img {
-      max-height: 75vh;
-      max-width: 100%;
-      width: auto;
       height: auto;
       display: block;
-      margin: 0 auto;
-    }
-
-    .slide-caption {
-      font-size: 14px;
-      font-style: italic;
-      color: #000;
-      padding: 6px 0 0 0;
-    }
-
-    /* nav row below image */
-    .slide-nav {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .slide-btn {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      background: #FFE000;
-      border: none;
-      cursor: pointer;
-      padding: 2px 10px;
-      color: #000;
-      line-height: 1;
-    }
-
-    .slide-btn:hover {
-      background: #2ecc40;
-      color: #fff;
-    }
-
-    .slide-count {
-      font-size: 13px;
-      color: #aaa;
+      margin-bottom: 16px;
     }
   </style>
 </head>
@@ -112,123 +41,12 @@
 
 <!-- PROJECT 1 -->
 <div class="project">
-  <p class="project-title" style="display:none">John, 2024</p>
-  <div class="slideshow">
-    <div class="slides">
-      <div class="slide active"><img src="John 2024 (1).jpg" /><p class="slide-caption">Untitled, 2024 — archival pigment print</p></div>
-      <div class="slide"><img src="John, 2024.jpg" /><p class="slide-caption">Untitled ii, 2024 — archival pigment print</p></div>
-      <div class="slide"><img src="John 2024 (2).jpg" /><p class="slide-caption">Untitled iii, 2024 — archival pigment print</p></div>
-    </div>
-    <div class="slide-nav">
-      <button class="slide-btn prev-btn">&#8592;</button>
-      <button class="slide-btn next-btn">&#8594;</button>
-      <span class="slide-count"></span>
-    </div>
-  </div>
+  <img src="John 2024 (2).jpg" class="project-img" />
+  <img src="John, 2024.jpg" class="project-img" />
+  <img src="John 2024 (1).jpg" class="project-img" />
 </div>
 
 
-<!-- PROJECT 2 -->
-<div class="project">
-  <p class="project-title" style="display:none">Hunters and Cowboys, 2024</p>
-  <div class="slideshow">
-    <div class="slides">
-      <div class="slide active"><div class="ph"></div><p class="slide-caption">Untitled, 2024 — archival pigment print</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Untitled ii, 2024 — archival pigment print</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Untitled iii, 2024 — archival pigment print</p></div>
-    </div>
-    <div class="slide-nav">
-      <button class="slide-btn prev-btn">&#8592;</button>
-      <button class="slide-btn next-btn">&#8594;</button>
-      <span class="slide-count"></span>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 2 -->
-<div class="project">
-  <p class="project-title" style="display:none">Project Two, 2023</p>
-  <div class="slideshow">
-    <div class="slides">
-      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2023 — medium</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2023 — medium</p></div>
-    </div>
-    <div class="slide-nav">
-      <button class="slide-btn prev-btn">&#8592;</button>
-      <button class="slide-btn next-btn">&#8594;</button>
-      <span class="slide-count"></span>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 3 -->
-<div class="project">
-  <p class="project-title" style="display:none">Project Three, 2022</p>
-  <div class="slideshow">
-    <div class="slides">
-      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2022 — medium</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2022 — medium</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Title iii, 2022 — medium</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Title iv, 2022 — medium</p></div>
-    </div>
-    <div class="slide-nav">
-      <button class="slide-btn prev-btn">&#8592;</button>
-      <button class="slide-btn next-btn">&#8594;</button>
-      <span class="slide-count"></span>
-    </div>
-  </div>
-</div>
-
-
-<!-- PROJECT 4 -->
-<div class="project">
-  <p class="project-title" style="display:none">Project Four, 2022</p>
-  <div class="slideshow">
-    <div class="slides">
-      <div class="slide active"><div class="ph"></div><p class="slide-caption">Title, 2022 — medium</p></div>
-      <div class="slide"><div class="ph"></div><p class="slide-caption">Title ii, 2022 — medium</p></div>
-    </div>
-    <div class="slide-nav">
-      <button class="slide-btn prev-btn">&#8592;</button>
-      <button class="slide-btn next-btn">&#8594;</button>
-      <span class="slide-count"></span>
-    </div>
-  </div>
-</div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('.slideshow').forEach(function (ss) {
-      var slides = ss.querySelectorAll('.slide');
-      var count = ss.querySelector('.slide-count');
-
-      function getCurrent() {
-        return Array.from(slides).findIndex(function (s) { return s.classList.contains('active'); });
-      }
-
-      function goTo(idx) {
-        slides.forEach(function (s) { s.classList.remove('active'); });
-        slides[idx].classList.add('active');
-        count.textContent = (idx + 1) + ' / ' + slides.length;
-      }
-
-      goTo(0);
-
-      ss.querySelector('.prev-btn').addEventListener('click', function () {
-        var cur = getCurrent();
-        goTo((cur - 1 + slides.length) % slides.length);
-      });
-
-      ss.querySelector('.next-btn').addEventListener('click', function () {
-        var cur = getCurrent();
-        goTo((cur + 1) % slides.length);
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
