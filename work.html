@@ -32,17 +32,16 @@
 
     .project-img {
       width: 100%;
+      max-width: 720px;
       height: auto;
       display: block;
       margin-bottom: 16px;
     }
 
-    .project-video {
+    .project-video-wrap {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      display: block;
+      max-width: 720px;
       margin-bottom: 16px;
-      border: none;
     }
   </style>
 </head>
@@ -66,10 +65,13 @@
 <div class="project">
   <p class="project-title">Hunters and Cowboys, 2025</p>
   <img src="Hunters and Cowboys 2025 (2.jpg" class="project-img" />
-  <iframe class="project-video" src="https://player.vimeo.com/video/1158603715" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <div class="project-video-wrap">
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1158603715?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Hunters and Cowboys and Cubicles"></iframe></div>
+  </div>
   <img src="Hunters and Cowboys 2025 (3).jpg" class="project-img" />
 </div>
 
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
