@@ -42,6 +42,35 @@
       max-width: 720px;
       margin-bottom: 16px;
     }
+
+    .video-thumb {
+      position: relative;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .video-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .video-thumb::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolygon points='8,5 19,12 8,19' fill='%23000'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 40%;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
@@ -64,7 +93,7 @@
 <div class="project">
   <p class="project-title">Hunters and Cowboys, 2025</p>
   <img src="Hunters%20and%20Cowboys%202025%20(2.jpg" class="project-img" />
-  <a href="https://vimeo.com/1158603715?share=copy&fl=sv&fe=ci" target="_blank"><img src="hac-thumbnail.png" class="project-img" /></a>
+  <a href="https://vimeo.com/1158603715?share=copy&fl=sv&fe=ci" target="_blank" class="video-thumb"><img src="hac-thumbnail.png" /></a>
   <img src="Hunters%20and%20Cowboys%202025%20(3).jpg" class="project-img" />
 </div>
 
